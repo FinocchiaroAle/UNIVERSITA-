@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmazione I — Manuale C11</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top App Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="menu-btn" class="icon-btn" type="button" aria-label="Apri o chiudi indice" aria-expanded="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <a href="#home" class="brand-link" id="brand-home-link">
+          <span class="brand-title">Programmazione I</span>
+          <span class="brand-tag">C11</span>
+        </a>
+      </div>
+
+      <div class="top-bar-right">
+        <button id="open-search-btn" class="search-trigger" type="button" aria-label="Cerca nel manuale">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <span class="search-trigger-text">Cerca argomento, funzione C, errore…</span>
+          <kbd class="kbd-hint">/</kbd>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Backdrop -->
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+    <div class="workspace">
+      <!-- Navigation Drawer -->
+      <aside id="nav-drawer" class="nav-drawer" aria-label="Indice del manuale">
+        <div class="drawer-filter-wrap">
+          <input id="drawer-filter" class="drawer-filter" type="search" placeholder="Filtra argomenti…" autocomplete="off" aria-label="Filtra argomenti nell'indice">
+        </div>
+        <nav id="drawer-nav" class="drawer-nav"></nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main id="main-content" class="main-content" tabindex="-1">
+        <!-- Home View -->
+        <section id="home-view" class="home-view" hidden></section>
+
+        <!-- Reading View -->
+        <article id="reader-view" class="reader-view" hidden></article>
+      </main>
+    </div>
+
+    <!-- Back to top FAB -->
+    <button id="back-to-top" class="fab-top" type="button" aria-label="Torna su" hidden>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Global Search Modal -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="modal-search-input" hidden>
+    <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+    <div class="search-dialog">
+      <div class="search-dialog-header">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="modal-search-input" class="modal-search-input" type="search" placeholder="Cerca qualsiasi termine, funzione C (es. fopen, malloc, switch)…" autocomplete="off">
+        <button id="close-search-btn" class="text-btn" type="button" aria-label="Chiudi ricerca">Esc</button>
+      </div>
+      <div class="search-scope-bar" id="modal-scope-bar">
+        <button class="scope-chip active" data-scope="all" type="button">Tutto</button>
+        <button class="scope-chip" data-scope="ref" type="button">Glossario &amp; Sintassi</button>
+        <button class="scope-chip" data-scope="heading" type="button">Titoli</button>
+        <button class="scope-chip" data-scope="code" type="button">Codice C</button>
+      </div>
+      <div id="modal-search-meta" class="search-meta"></div>
+      <div id="modal-search-results" class="search-results" role="listbox"></div>
+    </div>
+  </div>
+
+  <script src="data/book-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
