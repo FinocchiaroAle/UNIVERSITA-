@@ -370,7 +370,7 @@ body.drawer-collapsed .nav-drawer {
   flex: 1;
   min-width: 0;
   margin-left: var(--drawer-w);
-  padding: 28px 28px 72px;
+  padding: 24px 32px 72px;
   transition: margin-left 0.2s ease;
 }
 
@@ -380,8 +380,9 @@ body.drawer-collapsed .main-content {
 
 /* ================= HOME VIEW ================= */
 .home-view {
-  max-width: 1040px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .home-header {
@@ -664,8 +665,9 @@ body.drawer-collapsed .main-content {
 
 /* ================= READER VIEW ================= */
 .reader-view {
-  max-width: 860px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .reader-breadcrumb {
@@ -967,8 +969,8 @@ body.drawer-collapsed .main-content {
 
 .diagram-block {
   margin: 14px 0 18px;
-  padding: 12px 14px;
-  font-size: 0.77rem;
+  padding: 14px 16px;
+  font-size: 0.84rem;
   background: var(--code-bg);
   border: 1px solid var(--outline-variant);
   border-radius: var(--radius-md);
