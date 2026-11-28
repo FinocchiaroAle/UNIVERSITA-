@@ -1,5 +1,7 @@
-name: Deploy sito Programmazione I su GitHub Pages
-# URL pubblico: https://finocchiaroale.github.io/UNIVERSITA-/
+name: Deploy siti corsi su GitHub Pages
+# URL pubblici:
+#   - Programmazione I: https://finocchiaroale.github.io/UNIVERSITA-/
+#   - Algebra Lineare:  https://finocchiaroale.github.io/UNIVERSITA-/algebra-lineare/
 
 on:
   push:
@@ -7,6 +9,8 @@ on:
       - main
     paths:
       - "1° SEMESTRE/programmazione-1/sito/**"
+      - "1° SEMESTRE/algebra-lineare/sito/**"
+      - "1° SEMESTRE/algebra-lineare/dispensa_algebra_lineare.pdf"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -32,10 +36,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact (1° SEMESTRE/programmazione-1/sito)
+      - name: Assemble GitHub Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site/algebra-lineare
+          cp -r "1° SEMESTRE/programmazione-1/sito/." _site/
+          cp -r "1° SEMESTRE/algebra-lineare/sito/." _site/algebra-lineare/
+          cp "1° SEMESTRE/algebra-lineare/dispensa_algebra_lineare.pdf" _site/dispensa_algebra_lineare.pdf
+          touch _site/.nojekyll
+
+      - name: Upload artifact (_site)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "1° SEMESTRE/programmazione-1/sito"
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment
